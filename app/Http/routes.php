@@ -27,5 +27,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin'], 'namesp
 });
 Route::group(['prefix' => 'user', 'middleware' => 'auth', 'namespace' => '\User'], function(){
     Route:resource('reservations', 'ReservationsController');
-    Route::get('/pdf/{id}', 'ReservationsController@generatepdf');
+    Route::get('/pdf/{id}', 'PdfController@invoice');
 });

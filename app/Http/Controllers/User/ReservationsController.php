@@ -8,7 +8,6 @@ use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class ReservationsController extends Controller
 {
 
@@ -98,8 +97,9 @@ class ReservationsController extends Controller
     }
 
     public function generatepdf($id){
-        $reservation = Reservation::findOrFail($id);
-        dd($reservation);
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->stream();
     }
 
 }
